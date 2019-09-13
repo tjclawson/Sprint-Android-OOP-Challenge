@@ -26,6 +26,7 @@ class ItemDetailFragment : Fragment() {
      */
     private var item: Empire? = null
     private var dataViewModel = DataViewModel()
+    private var data = DataViewModel.Data
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class ItemDetailFragment : Fragment() {
                 // Load the dummy content specified by the fragment
                 // arguments. In a real-world scenario, use a Loader
                 // to load content from a content provider.
-                item = dataViewModel.dataMap[it.getString(ARG_ITEM_ID)]
+                item = data.dataMap[it.getString(ARG_ITEM_ID)]
                 activity?.toolbar_layout?.title = item?.name
             }
         }

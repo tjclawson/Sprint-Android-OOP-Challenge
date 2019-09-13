@@ -10,28 +10,38 @@ import com.example.sprint_android_oop_challenge.view.ItemListActivity
 
 class DataViewModel : ViewModel() {
 
-    val dataList: MutableList<Empire> = ArrayList()
-    val dataMap: MutableMap<String, Empire> = HashMap()
+    object Data{
 
-    init {
-        dataList.add(Unit("Archer", "Age of Kings", false, "Quick and light. Weak at close range; excels at battle from distance"))
-        dataList.add(Unit("Arbalest", "Age of Kings", false, "Upgraded crossbowman"))
-        dataList.add(Civilization("Aztecs", "The Conquerors", false, "Infantry and Monk"))
-        dataList.add(Civilization("Britons", "Age of Kings", false, "Foot Archer"))
-        dataList.add(Structure("Barracks", "Age of Kings", false, "Dark"))
-        dataList.add(Structure("Dock", "Age of Kings", false, "Dark"))
-        dataList.add(Technology("Crossbowman", "Age of Kings", false, "35"))
-        dataList.add(Technology("Thumb Ring", "Age of Kings", false, "45"))
+        val dataList: MutableList<Empire> = ArrayList()
+        val dataMap: MutableMap<String, Empire> = HashMap()
 
-        dataMap[dataList[0].name] = dataList[0]
-        dataMap[dataList[1].name] = dataList[1]
-        dataMap[dataList[2].name] = dataList[2]
-        dataMap[dataList[3].name] = dataList[3]
-        dataMap[dataList[4].name] = dataList[4]
-        dataMap[dataList[5].name] = dataList[5]
-        dataMap[dataList[6].name] = dataList[6]
-        dataMap[dataList[7].name] = dataList[7]
+        init {
+            dataList.add(
+                Unit(
+                    "Archer",
+                    "Age of Kings",
+                    false,
+                    "Quick and light. Weak at close range; excels at battle from distance"
+                )
+            )
+            dataList.add(Unit("Arbalest", "Age of Kings", false, "Upgraded crossbowman"))
+            dataList.add(Civilization("Aztecs", "The Conquerors", false, "Infantry and Monk"))
+            dataList.add(Civilization("Britons", "Age of Kings", false, "Foot Archer"))
+            dataList.add(Structure("Barracks", "Age of Kings", false, "Dark"))
+            dataList.add(Structure("Dock", "Age of Kings", false, "Dark"))
+            dataList.add(Technology("Crossbowman", "Age of Kings", false, "35"))
+            dataList.add(Technology("Thumb Ring", "Age of Kings", false, "45"))
 
+            dataMap[dataList[0].name] = dataList[0]
+            dataMap[dataList[1].name] = dataList[1]
+            dataMap[dataList[2].name] = dataList[2]
+            dataMap[dataList[3].name] = dataList[3]
+            dataMap[dataList[4].name] = dataList[4]
+            dataMap[dataList[5].name] = dataList[5]
+            dataMap[dataList[6].name] = dataList[6]
+            dataMap[dataList[7].name] = dataList[7]
+
+        }
     }
 
     fun clickListener(view: Button, item: Empire?, fragmentListener: ItemDetailFragment.FragmentListener?, model: DataViewModel){

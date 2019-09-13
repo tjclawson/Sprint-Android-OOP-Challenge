@@ -39,6 +39,7 @@ class ItemListActivity : AppCompatActivity(), ItemDetailFragment.FragmentListene
      */
     private var twoPane: Boolean = false
     private var dataViewModel = DataViewModel()
+    private var data = DataViewModel.Data
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +68,7 @@ class ItemListActivity : AppCompatActivity(), ItemDetailFragment.FragmentListene
         recyclerView.adapter =
             SimpleItemRecyclerViewAdapter(
                 this,
-                dataViewModel.dataList,
+                data.dataList,
                 twoPane
             )
     }
