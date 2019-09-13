@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.example.sprint_android_oop_challenge.R
 import com.example.sprint_android_oop_challenge.model.Empire
 import com.example.sprint_android_oop_challenge.viewmodel.DataViewModel
@@ -24,13 +25,19 @@ import kotlinx.android.synthetic.main.item_list.*
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-class ItemListActivity : AppCompatActivity() {
+class ItemListActivity : AppCompatActivity(), ItemDetailFragment.FragmentListener {
+
+    override fun showToast(empire: Empire) {
+        val favorite = if (empire.isFavorite) "has been favorited" else "has been unfavorited"
+        Toast.makeText(this, "${empire.name} $favorite", Toast.LENGTH_LONG).show()
+    }
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
      * device.
      */
     private var twoPane: Boolean = false
+    private var dataViewModel = DataViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +66,7 @@ class ItemListActivity : AppCompatActivity() {
         recyclerView.adapter =
             SimpleItemRecyclerViewAdapter(
                 this,
-                DataViewModel.dataList,
+                dataViewModel.dataList,
                 twoPane
             )
     }

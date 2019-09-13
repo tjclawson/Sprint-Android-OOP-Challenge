@@ -5,7 +5,9 @@ import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
+import android.widget.Toast
 import com.example.sprint_android_oop_challenge.R
+import com.example.sprint_android_oop_challenge.model.Empire
 import kotlinx.android.synthetic.main.activity_item_detail.*
 
 /**
@@ -14,7 +16,12 @@ import kotlinx.android.synthetic.main.activity_item_detail.*
  * item details are presented side-by-side with a list of items
  * in a [ItemListActivity].
  */
-class ItemDetailActivity : AppCompatActivity() {
+class ItemDetailActivity : AppCompatActivity(), ItemDetailFragment.FragmentListener {
+
+    override fun showToast(empire: Empire) {
+        val favorite = if (empire.isFavorite) "has been favorited" else "has been unfavorited"
+        Toast.makeText(this, "${empire.name} $favorite", Toast.LENGTH_LONG).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

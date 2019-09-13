@@ -2,7 +2,7 @@ package com.example.sprint_android_oop_challenge.model
 
 import kotlin.math.exp
 
-abstract class Empire(val name: String, val expansion: String, val isFavorite: Boolean) {
+abstract class Empire(val name: String, val expansion: String, var isFavorite: Boolean) {
 
     abstract fun getObjectDescription(): String
 }
