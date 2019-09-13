@@ -7,7 +7,7 @@ abstract class Empire(val name: String, val expansion: String, val isFavorite: B
     abstract fun getObjectDescription(): String
 }
 
-class Unit (name: String, expansion: String, isFavorite: Boolean, val description: String) : Empire(name, expansion, isFavorite) {
+class Unit(name: String, expansion: String, isFavorite: Boolean, val description: String) : Empire(name, expansion, isFavorite) {
 
     override fun getObjectDescription(): String {
         return "Unit Info:\n" +
