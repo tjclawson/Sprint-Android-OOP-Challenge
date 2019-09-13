@@ -2,11 +2,13 @@ package com.example.sprint_android_oop_challenge.viewmodel
 
 import android.view.View
 import android.widget.Button
+import androidx.lifecycle.ViewModel
 import com.example.sprint_android_oop_challenge.model.*
 import com.example.sprint_android_oop_challenge.model.Unit
 import com.example.sprint_android_oop_challenge.view.ItemDetailFragment
+import com.example.sprint_android_oop_challenge.view.ItemListActivity
 
-class DataViewModel {
+class DataViewModel : ViewModel() {
 
     val dataList: MutableList<Empire> = ArrayList()
     val dataMap: MutableMap<String, Empire> = HashMap()
@@ -32,7 +34,7 @@ class DataViewModel {
 
     }
 
-    fun clickListener(view: Button, item: Empire?, fragmentListener: ItemDetailFragment.FragmentListener?){
+    fun clickListener(view: Button, item: Empire?, fragmentListener: ItemDetailFragment.FragmentListener?, model: DataViewModel){
         item?.let{
             fragmentListener?.showToast(it)
             if(item?.isFavorite == true){

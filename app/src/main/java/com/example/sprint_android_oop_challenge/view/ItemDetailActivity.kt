@@ -20,7 +20,9 @@ class ItemDetailActivity : AppCompatActivity(), ItemDetailFragment.FragmentListe
 
     override fun showToast(empire: Empire) {
         val favorite = if (empire.isFavorite) "has been favorited" else "has been unfavorited"
-        Toast.makeText(this, "${empire.name} $favorite", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "${empire.name} $favorite\n" +
+                "Activity: ItemDetailActivity", Toast.LENGTH_LONG).show()
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

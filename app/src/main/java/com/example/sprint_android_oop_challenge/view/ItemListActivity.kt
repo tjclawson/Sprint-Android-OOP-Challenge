@@ -29,7 +29,8 @@ class ItemListActivity : AppCompatActivity(), ItemDetailFragment.FragmentListene
 
     override fun showToast(empire: Empire) {
         val favorite = if (empire.isFavorite) "has been favorited" else "has been unfavorited"
-        Toast.makeText(this, "${empire.name} $favorite", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "${empire.name} $favorite\n" +
+                "Activity: ItemListActivity", Toast.LENGTH_LONG).show()
     }
 
     /**

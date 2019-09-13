@@ -54,7 +54,7 @@ class ItemDetailFragment : Fragment() {
         }
 
         rootView.button_favorite.setOnClickListener {
-            dataViewModel.clickListener(button_favorite, item, fragmentListener)
+            dataViewModel.clickListener(button_favorite, item, fragmentListener, dataViewModel)
         }
 
         return rootView
